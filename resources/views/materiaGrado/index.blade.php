@@ -1,7 +1,7 @@
-@extends('layouts.app')
+@extends('layout')
 
 @section('template_title')
-    Pelicula
+    Materias por Grados
 @endsection
 
 @section('content')
@@ -13,7 +13,7 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Listado de Peliculas') }}
+                                {{ __('Materias por Grados') }}
                             </span>
                         </div>
                     </div>

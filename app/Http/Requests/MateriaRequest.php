@@ -24,7 +24,7 @@ class MateriaRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'nombre' => ['required','string']
         ];
     }
 }

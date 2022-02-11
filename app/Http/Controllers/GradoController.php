@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Grado;
-use Illuminate\Http\Request;
+//use Illuminate\Http\Request;
+use App\Http\Requests\GradoRequest;
 
 class GradoController extends Controller
 {
@@ -14,7 +15,7 @@ class GradoController extends Controller
      */
     public function index()
     {
-        //
+        return view('grado.index');
     }
 
     /**
@@ -33,7 +34,7 @@ class GradoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(GradoRequest $request)
     {
         //
     }
@@ -67,7 +68,7 @@ class GradoController extends Controller
      * @param  \App\Models\Grado  $grado
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Grado $grado)
+    public function update(GradoRequest $request, Grado $grado)
     {
         //
     }

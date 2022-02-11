@@ -24,7 +24,7 @@ class GradoRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'nombre' => ['required','string']
         ];
     }
 }

@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Materia;
-use Illuminate\Http\Request;
+//use Illuminate\Http\Request;
+use App\Http\Requests\MateriaRequest;
 
 class MateriaController extends Controller
 {
@@ -14,7 +15,7 @@ class MateriaController extends Controller
      */
     public function index()
     {
-        //
+        return view('materia.index');
     }
 
     /**
@@ -33,7 +34,7 @@ class MateriaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(MateriaRequest $request)
     {
         //
     }
@@ -67,7 +68,7 @@ class MateriaController extends Controller
      * @param  \App\Models\Materia  $materia
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Materia $materia)
+    public function update(MateriaRequest $request, Materia $materia)
     {
         //
     }

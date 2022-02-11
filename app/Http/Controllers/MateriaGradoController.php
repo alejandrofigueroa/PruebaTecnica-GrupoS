@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\MateriaGrado;
-use Illuminate\Http\Request;
+//use Illuminate\Http\Request;
+use App\Http\Requests\MateriaGradoRequest;
 
 class MateriaGradoController extends Controller
 {
@@ -14,7 +15,7 @@ class MateriaGradoController extends Controller
      */
     public function index()
     {
-        //
+        return view('materiaGrado.index');
     }
 
     /**
@@ -33,7 +34,7 @@ class MateriaGradoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(MateriaGradoRequest $request)
     {
         //
     }
@@ -67,7 +68,7 @@ class MateriaGradoController extends Controller
      * @param  \App\Models\MateriaGrado  $materia_Grado
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, MateriaGrado $materiaGrado)
+    public function update(MateriaGradoRequest $request, MateriaGrado $materiaGrado)
     {
         //
     }

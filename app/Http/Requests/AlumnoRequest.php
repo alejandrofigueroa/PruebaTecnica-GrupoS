@@ -24,7 +24,12 @@ class AlumnoRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'codigo' => ['required','string'],
+            'nombre' => ['required','string'], 
+            'edad' => ['required','numeric','min:0'], 
+            'sexo' => ['required','string'], 
+            'grado_id' => ['required','string'], 
+            'observacion' => ['required','string']   
         ];
     }
 }
