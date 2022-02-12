@@ -42,7 +42,7 @@ class GradoController extends Controller
     {
         $grado = Grado::create($request->validated());
 
-        return redirect()->route('grados.index');
+        return redirect()->route('grados.index')->with('success','El grado fue creado correctamente');
 
     }
 
@@ -79,7 +79,7 @@ class GradoController extends Controller
     {
         $grado->update($request->validated());
 
-        return redirect()->route('grados.index');
+        return redirect()->route('grados.index')->with('success','El grado fue actualizado correctamente');
     }
 
     /**
@@ -92,6 +92,6 @@ class GradoController extends Controller
     {
         $grado->delete();
 
-        return redirect()->route('grados.index');
+        return redirect()->route('grados.index')->with('success','El grado fue eliminado con exito');
     }
 }

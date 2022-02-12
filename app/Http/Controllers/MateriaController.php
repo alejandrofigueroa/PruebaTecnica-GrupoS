@@ -42,7 +42,7 @@ class MateriaController extends Controller
     {
         $materia = Materia::create($request->validated());
 
-        return redirect()->route('materias.index');        
+        return redirect()->route('materias.index')->with('success','La materia fue creada correctamente');;        
     }
 
     /**
@@ -78,7 +78,7 @@ class MateriaController extends Controller
     {
         $materia->update($request->validated());
 
-        return redirect()->route('materias.index');
+        return redirect()->route('materias.index')->with('success','La materia fue actualizada correctamente');;
     }
 
     /**
@@ -91,6 +91,6 @@ class MateriaController extends Controller
     {
         $materia->delete();
 
-        return redirect()->route('materias.index');
+        return redirect()->route('materias.index')->with('success','La materia fue eliminada correctamente');
     }
 }

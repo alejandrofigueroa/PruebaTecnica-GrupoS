@@ -24,6 +24,18 @@
                         </div>
                     </div>
 
+                    @if ($message = Session::get('success'))
+                        <div class="alert alert-success">
+                            <p>{{ $message }}</p>
+                        </div>
+                    @endif
+
+                    @if ($message = Session::get('error'))
+                        <div class="alert alert-danger">
+                            <p>{{ $message }}</p>
+                        </div>
+                    @endif
+
                     <div class="card-body">
                         <div class="table-responsive">
                             <table id="tabla-materia" class="table table-striped table-bordered table-hover">
@@ -62,3 +74,8 @@
         </div>
     </div>
 @endsection
+<script>
+    $(document).ready(function() {
+        $('#tabla-materia').DataTable();
+    });
+</script>

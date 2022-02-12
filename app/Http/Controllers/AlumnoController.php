@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\Alumno;
+use App\Models\Grado;
 //use Illuminate\Http\Request;
 use App\Http\Requests\AlumnoRequest;
+
 
 class AlumnoController extends Controller
 {
@@ -28,8 +30,9 @@ class AlumnoController extends Controller
     public function create()
     {
         $alumno = new Alumno();
+        $grados = Grado::pluck('nombre','id');
 
-        return view('alumno.create', compact('alumno'));
+        return view('alumno.create', compact('alumno','grados'));
     }
 
     /**
@@ -42,7 +45,7 @@ class AlumnoController extends Controller
     {
         $alumno = Alumno::create($request->validated());
 
-        return redirect()->route('alumnos.index'); 
+        return redirect()->route('alumnos.index')->with('success','El alumno fue creado correctamente'); 
     }
 
     /**
@@ -64,7 +67,8 @@ class AlumnoController extends Controller
      */
     public function edit(Alumno $alumno)
     {
-        return view('alumno.edit', compact('alumno'));
+        $grados = Grado::pluck('nombre','id');
+        return view('alumno.edit', compact('alumno','grados'));
     }
 
     /**
@@ -78,7 +82,7 @@ class AlumnoController extends Controller
     {
         $alumno->update($request->validated());
 
-        return redirect()->route('alumnos.index');
+        return redirect()->route('alumnos.index')->with('success','El alumno fue actualizado correctamente');
     }
 
     /**
@@ -91,6 +95,6 @@ class AlumnoController extends Controller
     {
         $alumno->delete();
 
-        return redirect()->route('alumnos.index');
+        return redirect()->route('alumnos.index')->with('success','El alumno correctamente eliminado');
     }
 }
