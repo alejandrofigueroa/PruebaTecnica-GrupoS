@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\MateriaGrado;
+use App\Models\Materia;
+use App\Models\Grado;
 //use Illuminate\Http\Request;
 use App\Http\Requests\MateriaGradoRequest;
 
@@ -17,6 +19,7 @@ class MateriaGradoController extends Controller
     {
         return view('materiaGrado.index');
     }
+
 
     /**
      * Show the form for creating a new resource.
@@ -36,7 +39,9 @@ class MateriaGradoController extends Controller
      */
     public function store(MateriaGradoRequest $request)
     {
-        //
+        $materiaGrado = MateriaGrado::create($request->validated());
+
+        return response()->json($materiaGrado);
     }
 
     /**

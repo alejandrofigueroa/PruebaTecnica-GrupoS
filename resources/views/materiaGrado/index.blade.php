@@ -20,11 +20,14 @@
 
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table id="tabla-pelicula" class="table table-striped table-bordered table-hover">
-                                <thead class="thead">
-                                    
+                            <table class="table table-striped table-bordered table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Materias</th>
+                                        <th>Grados</th>
+                                    </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="todos">
                                     
                                 </tbody>
                             </table>
@@ -34,4 +37,5 @@
             </div>
         </div>
     </div>
+    <script src="{{ asset('js/ajax/materiasGrados.js') }}"></script>   
 @endsection

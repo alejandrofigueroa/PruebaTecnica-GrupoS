@@ -12,13 +12,4 @@ class Alumno extends Model
 
     protected $fillable = ['codigo','nombre','edad','sexo','grado_id','observacion'];
 
-    /**
-     * Get all of the grados for the Alumno
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
-    public function grados(): HasMany
-    {
-        return $this->hasOne(Grado::class, 'id', 'grado_id');
-    }
 }

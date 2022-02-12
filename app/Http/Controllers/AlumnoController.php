@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Alumno;
 use App\Models\Grado;
-//use Illuminate\Http\Request;
+use App\Models\MateriaGrado;
+use Illuminate\Http\Request;
 use App\Http\Requests\AlumnoRequest;
 
 
@@ -96,5 +97,19 @@ class AlumnoController extends Controller
         $alumno->delete();
 
         return redirect()->route('alumnos.index')->with('success','El alumno correctamente eliminado');
+    }
+
+    public function alumnosMaterias(){
+
+        $gradoAlumnos = Alumno::join('grados','grados.id','=','alumnos.grado_id')
+                        ->select('alumnos.id as id', 'alumnos.nombre as alumno', 'grados.id as grado_id', 'grados.nombre as grado')
+                        ->get();
+
+        $gradoMaterias = MateriaGrado::join('grados','grados.id','=','materias_grados.grado_id')
+                                    ->join('materias','materias.id','=','materias_grados.materia_id')
+                                    ->select('materias_grados.grado_id as grado_id', 'materias.nombre as materia')
+                                    ->get();
+
+        return view('inicio', compact('gradoAlumnos', 'gradoMaterias'));
     }
 }

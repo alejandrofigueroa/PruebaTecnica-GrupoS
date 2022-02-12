@@ -35,6 +35,9 @@
             <a class="navbar-brand" href="#">Registro - Grupo Satelite</a> 
                 <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                     <li class="nav-item active">
+                        <a class="nav-link" href="{{ url('/inicio') }}">Inicio <span class="sr-only"></span></a>
+                    </li>
+                    <li >
                         <a class="nav-link" href="{{ route('alumnos.index') }}">Alumnos <span class="sr-only"></span></a>
                     </li>
                     <li>

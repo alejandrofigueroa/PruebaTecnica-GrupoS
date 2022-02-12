@@ -16,23 +16,5 @@ class MateriaGrado extends Model
 
     protected $fillable = ['grado_id', 'materia_id']; 
 
-    /**
-     * Get the materias associated with the Materia_Grado
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
-     */
-    public function materias(): HasOne
-    {
-        return $this->hasOne(Materia::class, 'id', 'materia_id');
-    }
-
-    /**
-     * Get the grados associated with the Materia_Grado
-     *
-     * @return \Illuminate\Database\Eloquent\Relations\HasOne
-     */
-    public function grados(): HasOne
-    {
-        return $this->hasOne(Grado::class, 'id', 'grado_id');
-    }
+    
 }
