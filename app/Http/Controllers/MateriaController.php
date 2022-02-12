@@ -15,7 +15,9 @@ class MateriaController extends Controller
      */
     public function index()
     {
-        return view('materia.index');
+        $materias = Materia::all();
+
+        return view('materia.index', compact('materias'));
     }
 
     /**
@@ -25,7 +27,9 @@ class MateriaController extends Controller
      */
     public function create()
     {
-        //
+        $materia = new Materia();
+
+        return view('materia.create', compact('materia'));
     }
 
     /**
@@ -36,7 +40,9 @@ class MateriaController extends Controller
      */
     public function store(MateriaRequest $request)
     {
-        //
+        $materia = Materia::create($request->validated());
+
+        return redirect()->route('materias.index');        
     }
 
     /**
@@ -47,7 +53,7 @@ class MateriaController extends Controller
      */
     public function show(Materia $materia)
     {
-        //
+        //return view('materia.edit', compact('materia'));
     }
 
     /**
@@ -58,7 +64,7 @@ class MateriaController extends Controller
      */
     public function edit(Materia $materia)
     {
-        //
+        return view('materia.edit', compact('materia'));
     }
 
     /**
@@ -70,7 +76,9 @@ class MateriaController extends Controller
      */
     public function update(MateriaRequest $request, Materia $materia)
     {
-        //
+        $materia->update($request->validated());
+
+        return redirect()->route('materias.index');
     }
 
     /**
@@ -81,6 +89,8 @@ class MateriaController extends Controller
      */
     public function destroy(Materia $materia)
     {
-        //
+        $materia->delete();
+
+        return redirect()->route('materias.index');
     }
 }

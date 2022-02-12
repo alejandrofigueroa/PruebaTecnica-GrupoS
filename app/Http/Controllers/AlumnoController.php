@@ -15,7 +15,9 @@ class AlumnoController extends Controller
      */
     public function index()
     {
-        return view('alumno.index');
+        $alumnos = Alumno::all();
+
+        return view('alumno.index', compact('alumnos'));
     }
 
     /**
@@ -25,7 +27,9 @@ class AlumnoController extends Controller
      */
     public function create()
     {
-        //
+        $alumno = new Alumno();
+
+        return view('alumno.create', compact('alumno'));
     }
 
     /**
@@ -36,7 +40,9 @@ class AlumnoController extends Controller
      */
     public function store(AlumnoRequest $request)
     {
-        //
+        $alumno = Alumno::create($request->validated());
+
+        return redirect()->route('alumnos.index'); 
     }
 
     /**
@@ -58,7 +64,7 @@ class AlumnoController extends Controller
      */
     public function edit(Alumno $alumno)
     {
-        //
+        return view('alumno.edit', compact('alumno'));
     }
 
     /**
@@ -70,7 +76,9 @@ class AlumnoController extends Controller
      */
     public function update(AlumnoRequest $request, Alumno $alumno)
     {
-        //
+        $alumno->update($request->validated());
+
+        return redirect()->route('alumnos.index');
     }
 
     /**
@@ -81,6 +89,8 @@ class AlumnoController extends Controller
      */
     public function destroy(Alumno $alumno)
     {
-        //
+        $alumno->delete();
+
+        return redirect()->route('alumnos.index');
     }
 }

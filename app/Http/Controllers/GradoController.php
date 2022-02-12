@@ -15,7 +15,9 @@ class GradoController extends Controller
      */
     public function index()
     {
-        return view('grado.index');
+        $grados = Grado::all();
+
+        return view('grado.index', compact('grados'));
     }
 
     /**
@@ -25,7 +27,9 @@ class GradoController extends Controller
      */
     public function create()
     {
-        //
+        $grado = new Grado();
+
+        return view('grado.create', compact('grado'));
     }
 
     /**
@@ -36,7 +40,10 @@ class GradoController extends Controller
      */
     public function store(GradoRequest $request)
     {
-        //
+        $grado = Grado::create($request->validated());
+
+        return redirect()->route('grados.index');
+
     }
 
     /**
@@ -58,7 +65,7 @@ class GradoController extends Controller
      */
     public function edit(Grado $grado)
     {
-        //
+        return view('grado.edit', compact('grado'));
     }
 
     /**
@@ -70,7 +77,9 @@ class GradoController extends Controller
      */
     public function update(GradoRequest $request, Grado $grado)
     {
-        //
+        $grado->update($request->validated());
+
+        return redirect()->route('grados.index');
     }
 
     /**
@@ -81,6 +90,8 @@ class GradoController extends Controller
      */
     public function destroy(Grado $grado)
     {
-        //
+        $grado->delete();
+
+        return redirect()->route('grados.index');
     }
 }
