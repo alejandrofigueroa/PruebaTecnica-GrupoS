@@ -24,8 +24,8 @@ class MateriaGradoRequest extends FormRequest
     public function rules()
     {
         return [
-            'grado_id' => ['required','numeric','min:0'],
-            'materia_id' => ['required','numeric','min:0']
+            'grado_id' => ['required'],
+            'materia_id' => ['required']
         ];
     }
 }

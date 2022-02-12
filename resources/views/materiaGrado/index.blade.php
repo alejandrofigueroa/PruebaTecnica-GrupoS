@@ -1,9 +1,5 @@
 @extends('layout')
 
-@section('template_title')
-    Materias por Grados
-@endsection
-
 @section('content')
     <div class="container-fluid">
         <div class="row">
@@ -13,22 +9,46 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Materias por Grados') }}
+                                <h1>{{ __('Materias por Grados') }}</h1>
                             </span>
+
+                            <div class="float-right">
+                                <a href="{{ route('materiaGrados.create') }}" class="btn btn-primary float-right"  data-placement="left">
+                                    {{ __('Nueva Materia por Grado') }}
+                                </a>
+                            </div>
                         </div>
                     </div>
 
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table-striped table-bordered table-hover">
+                            <table id="tabla-materiaGrado" class="table table-striped table-bordered table-hover">
                                 <thead>
                                     <tr>
-                                        <th>Materias</th>
                                         <th>Grados</th>
+                                        <th>Materias</th>
+                                        <th>Operaciones</th>
                                     </tr>
                                 </thead>
-                                <tbody id="todos">
-                                    
+                                <tbody >
+                                    @forelse ($materiasGrados as $materiaGrado)
+                                        <tr>
+                                            <td>{{ $materiaGrado->grado }}</td>
+                                            <td>{{ $materiaGrado->materia }}</td>
+                                            <td>
+                                                <form action="{{ route('materiaGrados.destroy',$materiaGrado->id) }}" method="POST">
+                                                    <a class="btn btn-sm btn-success" href="{{ route('materiaGrados.edit',$materiaGrado->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Seguro de que quieres eliminarlo?')"><i class="fa fa-fw fa-trash"></i> Eliminar</button>
+                                                </form>
+                                            </td>
+                                        </tr>
+                                    @empty
+                                        <tr>
+                                            <td colspan="2"><center>NO SE HAN ENCONTRADO RESULTADOS</center></td>
+                                        </tr>
+                                    @endforelse
                                 </tbody>
                             </table>
                         </div>
@@ -37,5 +57,9 @@
             </div>
         </div>
     </div>
-    <script src="{{ asset('js/ajax/materiasGrados.js') }}"></script>   
+    <script>
+        $(document).ready(function() {
+            $('#tabla-materiaGrado').DataTable();
+        });
+    </script>
 @endsection

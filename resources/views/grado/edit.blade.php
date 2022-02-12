@@ -1,9 +1,5 @@
 @extends('layout')
 
-@section('template_title')
-    Actualizar Grado
-@endsection
-
 @section('content')
     <section class="content container-fluid">
         <div class="">

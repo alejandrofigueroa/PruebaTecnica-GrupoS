@@ -44,10 +44,10 @@
                                                     @endif
 
                                                 @empty
-                                                    No hay ninguna materia registrada
+                                                    No hay ninguna materia vinculada
                                                 @endforelse
                                             </td>
-                                        <tr>
+                                        </tr>
                                     @empty
                                         <tr>
                                             <td colspan="4">No hay ningun resultado</td>

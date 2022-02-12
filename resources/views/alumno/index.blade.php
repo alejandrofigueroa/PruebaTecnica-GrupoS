@@ -1,9 +1,5 @@
 @extends('layout')
 
-@section('template_title')
-    Alumnos
-@endsection
-
 @section('content')
     <div class="container-fluid">
         <div class="row">
@@ -13,14 +9,15 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Listado de Alumnos') }}
+                                <h1>{{ __('Listado de Alumnos') }}</h1>
                             </span>
-
-                            <div class="float-right">
-                                <a href="{{ route('alumnos.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                    {{ __('Nueva Alumno') }}
-                                </a>
-                            </div>
+                            @if ($cantidadGrados != 0)
+                                <div class="float-right">
+                                    <a href="{{ route('alumnos.create') }}" class="btn btn-primary float-right"  data-placement="left">
+                                        {{ __('Nueva Alumno') }}
+                                    </a>
+                                </div>
+                            @endif
                         </div>
                     </div>
                     @if ($message = Session::get('success'))
@@ -56,14 +53,14 @@
                                             <td>{{ $alumno->codigo }}</td>
                                             <td>{{ $alumno->nombre }}</td>
                                             <td>{{ $alumno->edad }}</td>
-                                            <td>{{ $alumno->grado_id }}</td>
+                                            <td>{{ $alumno->grado }}</td>
                                             <td>{{ $alumno->observacion }}</td>
                                             <td>
                                                 <form action="{{ route('alumnos.destroy',$alumno->id) }}" method="POST">
                                                     <a class="btn btn-sm btn-success" href="{{ route('alumnos.edit',$alumno->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Eliminar</button>
+                                                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Seguro de que quieres eliminarlo?')"><i class="fa fa-fw fa-trash"></i> Eliminar</button>
                                                 </form>
                                             </td>
                                         </tr>

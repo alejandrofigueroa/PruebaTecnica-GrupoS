@@ -18,9 +18,14 @@ class AlumnoController extends Controller
      */
     public function index()
     {
-        $alumnos = Alumno::all();
+        $alumnos = Alumno::join('grados','grados.id','=','alumnos.grado_id')
+                        ->select('alumnos.id', 'alumnos.codigo','alumnos.nombre','alumnos.edad','alumnos.sexo','grados.nombre as grado',
+                        'alumnos.observacion')
+                        ->get();
 
-        return view('alumno.index', compact('alumnos'));
+        $cantidadGrados = Grado::all()->count();
+
+        return view('alumno.index', compact('alumnos','cantidadGrados'));
     }
 
     /**

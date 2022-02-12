@@ -9,14 +9,14 @@
 
                 <div class="card card-default">
                     <div class="card-header">
-                        <span class="card-title">Actualizar alumno: {{ $alumno->codigo }}</span>
+                        <span class="card-title">Actualizar información</span>
                     </div>
                     <div class="card-body">
-                        <form method="POST" action="{{ route('alumnos.update', $alumno->id) }}"  role="form" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('materiaGrados.update', $materiaGrado->id) }}"  role="form" enctype="multipart/form-data">
                             {{ method_field('PATCH') }}
                             @csrf
 
-                            @include('alumno.form')
+                            @include('materia.form')
 
                         </form>
                     </div>

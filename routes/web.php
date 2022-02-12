@@ -17,9 +17,10 @@ use App\Http\Controllers\MateriaGradoController;
 |
 */
 
-Route::get('/', function () {
-    return view('layout');
-});
+
+
+Route::get('/', [AlumnoController::class, 'alumnosMaterias']);
+
 Route::get('/inicio', [AlumnoController::class, 'alumnosMaterias']);
 Route::resource('alumnos', AlumnoController::class);
 Route::resource('grados', GradoController::class);

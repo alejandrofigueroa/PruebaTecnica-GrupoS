@@ -2,10 +2,11 @@
     <div class="box-body">
         <!-- UTILIZACION DEL FORM BLADE PARA MAYOR RAPIDEZ Y QUE ME PERMITE DE MANERA FACIL INTEGRARLOS PARA EL EDITAR Y CREAR -->
         <!-- FORMATO EJ FORM::TEXT(NAME, VALUE, [OTRAS COSAS])-->
+        
         <div class="form-group">
-            {{ Form::label('codigo') }}
-            {{ Form::text('codigo', $alumno->codigo, ['class' => 'form-control' . ($errors->has('codigo') ? ' is-invalid' : ''), 'placeholder' => 'Ingresar el codigo']) }}
-            {!! $errors->first('codigo', '<div class="invalid-feedback">:message</p>') !!}
+                {{ Form::label('codigo') }}
+                {{ Form::text('codigo', $alumno->codigo, ['class' => 'form-control' . ($errors->has('codigo') ? ' is-invalid' : ''), 'placeholder' => 'Ingresar el codigo']) }}
+                {!! $errors->first('codigo', '<div class="invalid-feedback">:message</p>') !!}
         </div>
         
         <div class="form-group">

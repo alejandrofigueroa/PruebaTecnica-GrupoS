@@ -1,9 +1,5 @@
 @extends('layout')
 
-@section('template_title')
-    Crear Grado
-@endsection
-
 @section('content')
     <section class="content container-fluid">
         <div class="row">

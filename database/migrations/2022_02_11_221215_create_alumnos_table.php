@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('observacion', 300);
             $table->timestamps();
 
-            $table->foreign('grado_id')->references('id')->on('grados');
+            $table->foreign('grado_id')->references('id')->on('grados')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

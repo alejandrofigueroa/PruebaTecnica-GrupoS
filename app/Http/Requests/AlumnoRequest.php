@@ -24,7 +24,7 @@ class AlumnoRequest extends FormRequest
     public function rules()
     {
         return [
-            'codigo' => ['required','string'],
+            'codigo' => ['required','string','unique:alumnos'],
             'nombre' => ['required','string'], 
             'edad' => ['required','numeric','min:0'], 
             'sexo' => ['required','string'], 

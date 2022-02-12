@@ -1,9 +1,5 @@
 @extends('layout')
 
-@section('template_title')
-    Materias
-@endsection
-
 @section('content')
     <div class="container-fluid">
         <div class="row">
@@ -13,11 +9,11 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Listado de Materias') }}
+                                <h1>{{ __('Listado de Materias') }}</h1>
                             </span>
 
                             <div class="float-right">
-                                <a href="{{ route('materias.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
+                                <a href="{{ route('materias.create') }}" class="btn btn-primary float-right"  data-placement="left">
                                     {{ __('Nueva Materia') }}
                                 </a>
                             </div>
@@ -56,7 +52,7 @@
                                                     <a class="btn btn-sm btn-success" href="{{ route('materias.edit',$materia->id) }}"><i class="fa fa-fw fa-edit"></i> Editar</a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Eliminar</button>
+                                                    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Seguro de que quieres eliminarlo?')"><i class="fa fa-fw fa-trash"></i> Eliminar</button>
                                                 </form>
                                             </td>
                                         </tr>

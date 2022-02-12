@@ -17,7 +17,12 @@ class MateriaGradoController extends Controller
      */
     public function index()
     {
-        return view('materiaGrado.index');
+        $materiasGrados = MateriaGrado::join('grados','grados.id','=','materias_grados.grado_id')
+                                    ->join('materias','materias.id','=','materias_grados.materia_id')
+                                    ->select('materias_grados.id as id','grados.nombre as grado','materias.nombre as materia')
+                                    ->get();
+
+        return view('materiaGrado.index', compact('materiasGrados'));
     }
 
 
@@ -28,7 +33,11 @@ class MateriaGradoController extends Controller
      */
     public function create()
     {
-        //
+        $materias = Materia::pluck('nombre','id');
+        $grados = Grado::pluck('nombre','id');
+        $materiaGrado = new MateriaGrado();
+
+        return view('materiaGrado.create', compact('materiaGrado','grados','materias'));
     }
 
     /**
@@ -41,7 +50,7 @@ class MateriaGradoController extends Controller
     {
         $materiaGrado = MateriaGrado::create($request->validated());
 
-        return response()->json($materiaGrado);
+        return redirect()->route('materiaGrados.index');
     }
 
     /**
@@ -63,7 +72,7 @@ class MateriaGradoController extends Controller
      */
     public function edit(MateriaGrado $materiaGrado)
     {
-        //
+        return view('materiaGrado.edit');
     }
 
     /**
@@ -75,7 +84,10 @@ class MateriaGradoController extends Controller
      */
     public function update(MateriaGradoRequest $request, MateriaGrado $materiaGrado)
     {
-        //
+        $materiaGrado->update($request->validated());
+
+
+        return redirect()->route('materiaGrados.index');
     }
 
     /**
@@ -86,6 +98,8 @@ class MateriaGradoController extends Controller
      */
     public function destroy(MateriaGrado $materiaGrado)
     {
-        //
+        $materiaGrado->delete();
+
+        return redirect()->route('materiaGrados.index');
     }
 }
