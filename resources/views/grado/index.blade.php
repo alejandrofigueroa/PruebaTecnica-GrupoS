@@ -73,9 +73,9 @@
             </div>
         </div>
     </div>
+    <script>
+        $(document).ready(function() {
+            $('#tabla-grado').DataTable();
+        });
+    </script>
 @endsection
-<script>
-    $(document).ready(function() {
-        $('#tabla-grado').DataTable();
-    });
-</script>

@@ -80,9 +80,9 @@
             </div>
         </div>
     </div>
+    <script>
+        $(document).ready(function() {
+            $('#tabla-alumno').DataTable();
+        });
+    </script>
 @endsection
-<script>
-    $(document).ready(function() {
-        $('#tabla-alumno').DataTable();
-    });
-</script>
