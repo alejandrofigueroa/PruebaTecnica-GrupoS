@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 12-02-2022 a las 05:29:59
+-- Tiempo de generación: 12-02-2022 a las 07:09:45
 -- Versión del servidor: 10.4.20-MariaDB
 -- Versión de PHP: 8.0.8
 
@@ -44,7 +44,8 @@ CREATE TABLE `alumnos` (
 --
 
 INSERT INTO `alumnos` (`id`, `codigo`, `nombre`, `edad`, `sexo`, `grado_id`, `observacion`, `created_at`, `updated_at`) VALUES
-(2, 'FR161906', 'Alejandro Figueroa', 23, '0', 4, 'Buen alumno', '2022-02-12 10:19:54', '2022-02-12 10:19:54');
+(2, 'FR161906', 'Alejandro Figueroa', 23, '0', 4, 'Buen alumno', '2022-02-12 10:19:54', '2022-02-12 10:19:54'),
+(3, 'SC912012', 'Ernesto Rivas', 6, '0', 5, 'Excelente alumno', '2022-02-12 10:47:54', '2022-02-12 10:47:54');
 
 -- --------------------------------------------------------
 
@@ -80,7 +81,8 @@ CREATE TABLE `grados` (
 --
 
 INSERT INTO `grados` (`id`, `nombre`, `created_at`, `updated_at`) VALUES
-(4, 'Octavo', '2022-02-12 10:19:23', '2022-02-12 10:19:23');
+(4, 'Octavo', '2022-02-12 10:19:23', '2022-02-12 10:19:23'),
+(5, 'Tercero', '2022-02-12 10:46:52', '2022-02-12 10:46:52');
 
 -- --------------------------------------------------------
 
@@ -122,7 +124,8 @@ CREATE TABLE `materias_grados` (
 --
 
 INSERT INTO `materias_grados` (`id`, `grado_id`, `materia_id`, `created_at`, `updated_at`) VALUES
-(3, 4, 1, '2022-02-12 10:28:38', '2022-02-12 10:28:38');
+(3, 4, 1, '2022-02-12 10:28:38', '2022-02-12 10:28:38'),
+(4, 4, 2, '2022-02-12 10:47:11', '2022-02-12 10:47:11');
 
 -- --------------------------------------------------------
 
@@ -270,7 +273,7 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT de la tabla `alumnos`
 --
 ALTER TABLE `alumnos`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT de la tabla `failed_jobs`
@@ -282,7 +285,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT de la tabla `grados`
 --
 ALTER TABLE `grados`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT de la tabla `materias`
@@ -294,7 +297,7 @@ ALTER TABLE `materias`
 -- AUTO_INCREMENT de la tabla `materias_grados`
 --
 ALTER TABLE `materias_grados`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT de la tabla `migrations`
