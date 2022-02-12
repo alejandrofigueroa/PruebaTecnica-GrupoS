@@ -1,8 +1,7 @@
-Lo necesario para que se ejecute de manera correcta el proyecto es directamente en la raiz de la carpeta, abrir la terminal (cmd) o directamente del IDE si tiene la capacidad y ubicar: "composer update", por ultimo descomprimir el archivo env.rar
+Lo necesario para que se ejecute de manera correcta el proyecto es directamente en la raiz de la carpeta, abrir la terminal (cmd) o directamente del IDE si tiene la capacidad y ubicar: "composer update", por ultimo descomprimir el archivo .env.7z
+Luego de todo eso, ejecutar en la terminal "php artisan migrate:refresh" o directamente importar el archivo sql al phpmyadmin y con todo eso no debería de tener ningún problema a la hora de hacer pruebas
 
-Con todo eso no debería de tener ningún problema
-
-
+Laravel versión 9.0.2 y PHP 8.0.8
 
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
